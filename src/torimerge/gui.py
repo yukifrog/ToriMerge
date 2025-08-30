@@ -3,7 +3,7 @@ import threading
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from pathlib import Path
-from .cli import main as cli_main
+from torimerge.cli import main as cli_main
 
 
 def _run_cli(excel: str, template: str, outdir: str, log_widget: tk.Text, run_btn: tk.Button):

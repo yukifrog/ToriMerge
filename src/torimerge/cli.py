@@ -2,10 +2,10 @@ from __future__ import annotations
 from argparse import ArgumentParser
 from pathlib import Path
 from typing import List
-from .excel_loader import load_excel, required_columns_present
-from .group_merge import group_rows, build_group_emails
-from .template_engine import parse_template, render
-from .eml_builder import build_eml
+from torimerge.excel_loader import load_excel, required_columns_present
+from torimerge.group_merge import group_rows, build_group_emails
+from torimerge.template_engine import parse_template, render
+from torimerge.eml_builder import build_eml
 
 
 def main() -> None:
