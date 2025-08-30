@@ -1,8 +1,8 @@
 from __future__ import annotations
 from typing import Dict, List, Any
 from pathlib import Path
-from .types import GroupedEmail
-from .excel_loader import parse_recipients, parse_attachments
+from torimerge.types import GroupedEmail
+from torimerge.excel_loader import parse_recipients, parse_attachments
 
 
 def group_rows(rows: List[Dict[str, Any]], key_col: str = "key") -> Dict[str, List[Dict[str, Any]]]:
