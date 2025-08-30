@@ -2,6 +2,8 @@ name: Build Windows EXE
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [ main ]
   release:
     types: [created]
 
@@ -18,9 +20,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install . pyinstaller
       - name: Build CLI
-        run: pyinstaller -y --name torimerge --console -F src/torimerge/cli.py
+        run: pyinstaller -y --collect-all pandas --collect-all openpyxl torimerge-cli.spec
       - name: Build GUI
-        run: pyinstaller -y --name torimerge-gui --windowed -F src/torimerge/gui.py
+        run: pyinstaller -y --collect-all pandas --collect-all openpyxl torimerge-gui.spec
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
