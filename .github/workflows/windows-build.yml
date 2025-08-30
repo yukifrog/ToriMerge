@@ -1,0 +1,30 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install . pyinstaller
+      - name: Build CLI
+        run: pyinstaller -y --name torimerge --console -F src/torimerge/cli.py
+      - name: Build GUI
+        run: pyinstaller -y --name torimerge-gui --windowed -F src/torimerge/gui.py
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: torimerge-windows
+          path: |
+            dist/torimerge.exe
+            dist/torimerge-gui.exe

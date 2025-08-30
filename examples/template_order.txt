@@ -1,0 +1,11 @@
+注文確認：{{group_name}} 様
+
+{{customer_name}} 様
+以下のご注文内容をご確認ください。
+
+[[TABLE:item,qty,price]]
+・品目: {{item}} / 数量: {{qty}} / 金額: {{price}}
+[[/TABLE]]
+
+合計点数: {{row_count}}
+以上、よろしくお願いいたします。
